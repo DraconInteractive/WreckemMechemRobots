@@ -84,9 +84,9 @@ public class InteractableItem : MonoBehaviour
                 }
             } else
             {
-                if (!highlightRight.activeSelf)
+                if (highlightRight.activeSelf)
                 {
-                    highlightRight.SetActive(true);
+                    highlightRight.SetActive(false);
                 }
             }
             yield return null;
