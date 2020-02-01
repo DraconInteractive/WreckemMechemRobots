@@ -9,8 +9,11 @@ public class InteractableItem : MonoBehaviour
     public bool interactable = true;
     public float actionCooldown;
     float currentCooldown;
-    public float movementSpeed;
+    public float movementSpeed, rotateSpeed;
     public UnityEvent onInteractDown, onInteractUp;
+
+    public GameObject highlightLeft, highlightRight;
+    public bool highlightedLeft, highlightedRight;
 
     private void Awake()
     {
@@ -34,19 +37,60 @@ public class InteractableItem : MonoBehaviour
             {
                 currentCooldown -= Time.deltaTime;
             }
+            yield return null;
         }
         yield break;
     }
 
     IEnumerator MovementRoutine ()
     {
-        if (grabbed)
+        while (true)
         {
-            transform.position = Vector3.MoveTowards(transform.position, grabbingHand.itemAnchor.position, movementSpeed * Time.deltaTime);
+            if (grabbed)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, grabbingHand.itemAnchor.position, movementSpeed * Time.deltaTime);
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, grabbingHand.itemAnchor.rotation, rotateSpeed * Time.deltaTime);
+            }
+            yield return null;
         }
+        
         yield break;
     }
 
+    IEnumerator HighlightRoutine ()
+    {
+        while (true)
+        {
+            if (highlightedLeft)
+            {
+                if (!highlightLeft.activeSelf)
+                {
+                    highlightLeft.SetActive(true);
+                }
+            } else
+            {
+                if (highlightLeft.activeSelf)
+                {
+                    highlightLeft.SetActive(false);
+                }
+            }
+
+            if (highlightedRight)
+            {
+                if (!highlightRight.activeSelf)
+                {
+                    highlightRight.SetActive(true);
+                }
+            } else
+            {
+                if (!highlightRight.activeSelf)
+                {
+                    highlightRight.SetActive(true);
+                }
+            }
+            yield return null;
+        }
+    }
     private void OnDestroy()
     {
         if (all.Contains(this))
