@@ -1,38 +1,32 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 [RequireComponent(typeof(SphereCollider))]
 [RequireComponent(typeof(AudioSource))]
 
-public class GreasableJoint : MonoBehaviour
+public class WeldableHole : MonoBehaviour
 {
-    public SphereCollider jointTrigger;
-    AudioSource audioPlayer;
-
-    bool tipInside;
-    public UnityEvent onGreased;
-    float greasedTimer;
-
     [Header("Joint Settings")]
     public float triggerSize;
-    public AudioClip[] squeakClips;
+    public AudioClip weldClips;
     public bool isLeft;
-    public float greasingLength;
+    public float weldingLength;
 
-    void Awake()
-    {
-        jointTrigger.radius = triggerSize;
-    }
+    bool tipInside;
+    float greasedTimer;
+    AudioSource audioPlayer;
 
+    // Update is called once per frame
     void Update()
     {
         if (tipInside && OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger, isLeft ? OVRInput.Controller.LTouch : OVRInput.Controller.RTouch))
         {
             greasedTimer += Time.deltaTime;
-            if (greasedTimer >= greasingLength) {
-                onGreased?.Invoke();
+            PlaySqueak();
+
+            if (greasedTimer >= weldingLength)
+            {
                 this.enabled = false;
             }
         }
@@ -40,28 +34,28 @@ public class GreasableJoint : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Welder"))
+        if (other.CompareTag("Greaser"))
         {
             tipInside = true;
-        }  
+            audioPlayer.loop = true;
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Welder"))
+        if (other.CompareTag("Greaser"))
         {
             tipInside = false;
+            audioPlayer.loop = false;
         }
     }
 
     private void PlaySqueak()
     {
-        int soundNumToPlay = Random.Range(0, squeakClips.Length - 1);
-        audioPlayer.clip = squeakClips[soundNumToPlay];
+        audioPlayer.clip = weldClips;
         if (!audioPlayer.isPlaying)
         {
             audioPlayer.Play();
         }
     }
-
 }
