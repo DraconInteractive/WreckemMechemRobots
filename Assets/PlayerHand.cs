@@ -47,7 +47,29 @@ public class PlayerHand : MonoBehaviour
                     }
                 }
             }
+
+            foreach (InteractableItem item in InteractableItem.all)
+            {
+                if (chirality == Chirality.Left)
+                {
+                    item.highlightedLeft = false;
+                } else
+                {
+                    item.highlightedRight = false;
+                }
+            }
+
+            if (chirality == Chirality.Left)
+            {
+                closestInteractable.highlightedLeft = true;
+            }
+            else
+            {
+                closestInteractable.highlightedRight = true;
+            }
         }
+
+        
         
     }
 
