@@ -23,7 +23,7 @@ public class WeldableHole : MonoBehaviour
         if (tipInside && OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger, isLeft ? OVRInput.Controller.LTouch : OVRInput.Controller.RTouch))
         {
             greasedTimer += Time.deltaTime;
-            PlaySqueak();
+            PlayWielding();
 
             if (greasedTimer >= weldingLength)
             {
@@ -50,7 +50,7 @@ public class WeldableHole : MonoBehaviour
         }
     }
 
-    private void PlaySqueak()
+    private void PlayWielding()
     {
         audioPlayer.clip = weldClips;
         if (!audioPlayer.isPlaying)

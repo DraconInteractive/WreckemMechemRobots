@@ -18,6 +18,7 @@ public class GreasableJoint : MonoBehaviour
     [Header("Joint Settings")]
     public float triggerSize;
     public AudioClip[] squeakClips;
+    public AudioClip weldClip;
     public bool isLeft;
     public float greasingLength;
 
@@ -31,6 +32,8 @@ public class GreasableJoint : MonoBehaviour
         if (tipInside && OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger, isLeft ? OVRInput.Controller.LTouch : OVRInput.Controller.RTouch))
         {
             greasedTimer += Time.deltaTime;
+            PlayGreaser();
+
             if (greasedTimer >= greasingLength) {
                 onGreased?.Invoke();
                 this.enabled = false;
@@ -57,7 +60,12 @@ public class GreasableJoint : MonoBehaviour
     private void PlaySqueak()
     {
         int soundNumToPlay = Random.Range(0, squeakClips.Length - 1);
-        audioPlayer.clip = squeakClips[soundNumToPlay];
+        audioPlayer.PlayOneShot(squeakClips[soundNumToPlay]);
+    }
+
+    private void PlayGreaser()
+    {
+        audioPlayer.clip = weldClip;
         if (!audioPlayer.isPlaying)
         {
             audioPlayer.Play();
