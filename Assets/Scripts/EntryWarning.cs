@@ -8,11 +8,12 @@ public class EntryWarning : MonoBehaviour
 {
     public bool botIncoming;
     public Light pulsingLight, spiningLight;
+    public AudioClip alarm;
     public AudioClip warningDialouge;
     AudioSource audioplayer;
 
-    float fadeCounter, lightAngle;
-    bool countUp = true;
+    float fadeCounter, lightAngle, alarmCounter, alarmTriggers;
+    bool countUp = true, alarmDoOnce = true;
     
     // Start is called before the first frame update
     void Start()
@@ -28,17 +29,23 @@ public class EntryWarning : MonoBehaviour
     {
         if (botIncoming)
         {
+            if (alarmDoOnce)
+            {
+                audioplayer.PlayOneShot(alarm);
+                alarmDoOnce = false;
+            }
+
             pulsingLight.enabled = true;
             spiningLight.enabled = true;
 
             lightAngle += Time.deltaTime;
-            lightAngle = Mathf.Clamp(lightAngle, 0, 5);
+            lightAngle = Mathf.Clamp(lightAngle, 0, 3);
             spiningLight.transform.Rotate(Vector3.up, lightAngle);
 
             if (countUp)
             {
                 fadeCounter += Time.deltaTime;
-                if(fadeCounter > 2)
+                if(fadeCounter > 0.5)
                 {
                     countUp = false;
                 }
@@ -51,8 +58,15 @@ public class EntryWarning : MonoBehaviour
                     countUp = true;
                 }
             }
+ 
+            pulsingLight.intensity = fadeCounter*200;
 
-            pulsingLight.intensity = fadeCounter;
+            alarmCounter += Time.deltaTime;
+            if(alarmCounter >  1.5)
+            {
+                alarmCounter = 0;
+                audioplayer.PlayOneShot(alarm);
+            }
 
         }
         else
@@ -60,6 +74,8 @@ public class EntryWarning : MonoBehaviour
             pulsingLight.enabled = false;
             spiningLight.enabled = false;
             lightAngle = 0;
+            alarmCounter = 0;
+            alarmDoOnce = true;
         }
     }
 }
