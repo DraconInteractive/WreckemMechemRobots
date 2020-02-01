@@ -10,7 +10,6 @@ public class InteractableItem : MonoBehaviour
     public float actionCooldown;
     float currentCooldown;
     public float movementSpeed;
-    public float inHandMinDist;
     public UnityEvent onInteractDown, onInteractUp;
 
     private void Awake()
