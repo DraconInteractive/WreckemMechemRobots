@@ -27,6 +27,7 @@ public class InteractableItem : MonoBehaviour
     {
         StartCoroutine(CooldownRoutine());
         StartCoroutine(MovementRoutine());
+        StartCoroutine(HighlightRoutine());
     }
 
     IEnumerator CooldownRoutine ()

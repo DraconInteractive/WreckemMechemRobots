@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LoadEnvironment : MonoBehaviour
 {
@@ -13,7 +14,8 @@ public class LoadEnvironment : MonoBehaviour
 
     IEnumerator Load ()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(envName, UnityEngine.SceneManagement.LoadSceneMode.Additive);
+        yield return SceneManager.LoadSceneAsync(envName, UnityEngine.SceneManagement.LoadSceneMode.Additive);
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName(envName));
         yield break;
     }
     // Update is called once per frame
