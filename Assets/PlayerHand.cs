@@ -31,20 +31,24 @@ public class PlayerHand : MonoBehaviour
         float maxDist = Mathf.Infinity;
         interactablesInRange.Clear();
         closestInteractable = null;
-        foreach (InteractableItem item in InteractableItem.all)
+        if (InteractableItem.all != null && InteractableItem.all.Count > 0)
         {
-            float dist = Vector3.Distance(item.transform.position, transform.position);
-            if (dist < interactionDist && item.interactable)
+            foreach (InteractableItem item in InteractableItem.all)
             {
-                interactablesInRange.Add(item);
-
-                if (dist < maxDist)
+                float dist = Vector3.Distance(item.transform.position, transform.position);
+                if (dist < interactionDist && item.interactable)
                 {
-                    maxDist = dist;
-                    closestInteractable = item;
+                    interactablesInRange.Add(item);
+
+                    if (dist < maxDist)
+                    {
+                        maxDist = dist;
+                        closestInteractable = item;
+                    }
                 }
             }
         }
+        
     }
 
     public void InteractDown ()
