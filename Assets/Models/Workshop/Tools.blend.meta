@@ -1,24 +1,9 @@
 fileFormatVersion: 2
-guid: f6ad663299a75bf489ec988dd2803318
+guid: 2d513190c9fdc994fa6e98cc26625a5d
 ModelImporter:
   serializedVersion: 26
-  internalIDToNameTable:
-  - first:
-      74: 1827226128182048838
-    second: Take 001
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: 'Material #16'
-    second: {fileID: 1157471560394431334, guid: f6ad663299a75bf489ec988dd2803318,
-      type: 3}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: 'Material #3'
-    second: {fileID: -5567897635444601682, guid: f6ad663299a75bf489ec988dd2803318,
-      type: 3}
+  internalIDToNameTable: []
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
@@ -102,7 +87,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
