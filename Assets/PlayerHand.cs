@@ -19,12 +19,7 @@ public class PlayerHand : MonoBehaviour
     InteractableItem itemInHand;
     public UnityEvent onInteract, onGrab, onRelease;
     public List<InteractableItem> interactablesInRange = new List<InteractableItem>();
-    FixedJoint joint;
 
-    private void Awake()
-    {
-        joint = GetComponent<FixedJoint>();
-    }
     void Update()
     {
         UpdateInteractablesInRange();
@@ -63,18 +58,15 @@ public class PlayerHand : MonoBehaviour
                     item.highlightedRight = false;
                 }
             }
-            if (closestInteractable != null)
-            {
-                if (chirality == Chirality.Left)
-                {
-                    closestInteractable.highlightedLeft = true;
-                }
-                else
-                {
-                    closestInteractable.highlightedRight = true;
-                }
-            }
 
+            if (chirality == Chirality.Left)
+            {
+                closestInteractable.highlightedLeft = true;
+            }
+            else
+            {
+                closestInteractable.highlightedRight = true;
+            }
         }
 
         
@@ -105,11 +97,6 @@ public class PlayerHand : MonoBehaviour
             {
                 itemInHand = closestInteractable;
                 itemInHand.Grab(this);
-                if (closestInteractable.usePhysics)
-                {
-                    joint.connectedBody = closestInteractable.GetComponent<Rigidbody>();
-                }
-                
             }
         }
     }
@@ -120,11 +107,6 @@ public class PlayerHand : MonoBehaviour
         {
             itemInHand.Release();
             itemInHand = null;
-            
-            if (joint.connectedBody != null)
-            {
-                joint.connectedBody = null;
-            }
         }
     }
 }

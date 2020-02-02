@@ -10,25 +10,16 @@ public class InteractableItem : MonoBehaviour
     public float actionCooldown;
     float currentCooldown;
     public float movementSpeed, rotateSpeed;
-    public UnityEvent onGrab, onRelease;
     public UnityEvent onInteractDown, onInteractUp;
 
     public GameObject highlightLeft, highlightRight;
     public bool highlightedLeft, highlightedRight;
 
-    public bool usePhysics, doRotation = true;
-
-    Rigidbody rb;
     private void Awake()
     {
         if (!all.Contains(this))
         {
             all.Add(this);
-        }
-
-        if (usePhysics)
-        {
-            rb = GetComponent<Rigidbody>();
         }
     }
 
@@ -58,24 +49,8 @@ public class InteractableItem : MonoBehaviour
         {
             if (grabbed)
             {
-                if (usePhysics)
-                {
-                    /*
-                    rb.MovePosition(Vector3.MoveTowards(transform.position, grabbingHand.itemAnchor.position, movementSpeed * Time.deltaTime));
-                    if (doRotation)
-                    {
-                        rb.MoveRotation(Quaternion.RotateTowards(transform.rotation, grabbingHand.itemAnchor.rotation, rotateSpeed * Time.deltaTime));
-                    }*/
-                } else
-                {
-                    transform.position = Vector3.MoveTowards(transform.position, grabbingHand.itemAnchor.position, movementSpeed * Time.deltaTime);
-
-                    if (doRotation)
-                    {
-                        transform.rotation = Quaternion.RotateTowards(transform.rotation, grabbingHand.itemAnchor.rotation, rotateSpeed * Time.deltaTime);
-
-                    }
-                }
+                transform.position = Vector3.MoveTowards(transform.position, grabbingHand.itemAnchor.position, movementSpeed * Time.deltaTime);
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, grabbingHand.itemAnchor.rotation, rotateSpeed * Time.deltaTime);
             }
             yield return null;
         }
@@ -142,12 +117,10 @@ public class InteractableItem : MonoBehaviour
     {
         grabbed = true;
         grabbingHand = hand;
-        onGrab?.Invoke();
     }
 
     public void Release ()
     {
         grabbed = false;
-        onRelease?.Invoke();
     }
 }
