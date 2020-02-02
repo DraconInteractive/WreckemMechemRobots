@@ -20,7 +20,7 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+  m_AmbientSkyColor: {r: 0, g: 0, b: 0, a: 1}
   m_AmbientEquatorColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
   m_AmbientGroundColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
   m_AmbientIntensity: 1
@@ -1896,13 +1896,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1219592378}
-  m_LocalRotation: {x: -0, y: 0.87372386, z: -0, w: -0.4864222}
-  m_LocalPosition: {x: -0.142, y: 4, z: 1.059}
+  m_LocalRotation: {x: -0, y: 0.94449, z: -0, w: 0.32854027}
+  m_LocalPosition: {x: -2.094, y: 4, z: 0.802}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1547420403}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 238.211, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 141.64, z: 0}
 --- !u!1 &1382590138
 GameObject:
   m_ObjectHideFlags: 0
@@ -3352,6 +3352,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   starers: 0
   lerpSpeed: 25
+  eyes:
+  - {fileID: 3591782588930839120}
+  - {fileID: 1195954675751684085}
 --- !u!81 &2072005824
 AudioListener:
   m_ObjectHideFlags: 0
@@ -7870,8 +7873,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8296172667697991418}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.238, y: 4.69, z: 0.241}
+  m_LocalRotation: {x: -0.62150395, y: -0.3372431, z: -0.33724305, w: 0.62150395}
+  m_LocalPosition: {x: -1.651, y: 5.268, z: 0.128}
   m_LocalScale: {x: 0.175, y: 0.175, z: 0.175}
   m_Children:
   - {fileID: 3856126630181106343}
@@ -7879,7 +7882,7 @@ Transform:
   - {fileID: 726167531370910309}
   m_Father: {fileID: 0}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: -56.971004}
 --- !u!33 &5048465514328305326
 MeshFilter:
   m_ObjectHideFlags: 0
