@@ -1247,8 +1247,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactable: 1
   actionCooldown: 0
-  movementSpeed: 0
-  rotateSpeed: 0
+  movementSpeed: 5
+  rotateSpeed: 90
   onGrab:
     m_PersistentCalls:
       m_Calls: []
@@ -1835,8 +1835,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactable: 1
   actionCooldown: 0
-  movementSpeed: 0
-  rotateSpeed: 0
+  movementSpeed: 5
+  rotateSpeed: 90
   onGrab:
     m_PersistentCalls:
       m_Calls: []
@@ -2033,8 +2033,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 609417773}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.9035, y: 7.002, z: 2.185}
-  m_LocalScale: {x: 3, y: 0.0566, z: 0.3}
+  m_LocalPosition: {x: 0.766, y: 7.002, z: 1.7}
+  m_LocalScale: {x: 2.57628, y: 0.0566, z: 0.3}
   m_Children: []
   m_Father: {fileID: 2117136392}
   m_RootOrder: 11
@@ -2490,8 +2490,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 809185705}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.9035, y: 7.002, z: -1.8103}
-  m_LocalScale: {x: 3, y: 0.0566, z: 0.3}
+  m_LocalPosition: {x: 0.9035, y: 7.002, z: -1.407}
+  m_LocalScale: {x: 2.54073, y: 0.0566, z: 0.3}
   m_Children: []
   m_Father: {fileID: 2117136392}
   m_RootOrder: 10
@@ -2841,8 +2841,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 957174854}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.517, y: 7.002, z: 2.185}
-  m_LocalScale: {x: 3, y: 0.0566, z: 0.3}
+  m_LocalPosition: {x: -2.64, y: 7.002, z: 1.7}
+  m_LocalScale: {x: 2.57628, y: 0.0566, z: 0.3}
   m_Children: []
   m_Father: {fileID: 2117136392}
   m_RootOrder: 12
@@ -3005,8 +3005,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactable: 1
   actionCooldown: 0
-  movementSpeed: 0
-  rotateSpeed: 0
+  movementSpeed: 5
+  rotateSpeed: 90
   onGrab:
     m_PersistentCalls:
       m_Calls: []
@@ -4946,8 +4946,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactable: 1
   actionCooldown: 0
-  movementSpeed: 0
-  rotateSpeed: 0
+  movementSpeed: 5
+  rotateSpeed: 90
   onGrab:
     m_PersistentCalls:
       m_Calls: []
@@ -5520,8 +5520,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactable: 1
   actionCooldown: 0
-  movementSpeed: 0
-  rotateSpeed: 0
+  movementSpeed: 5
+  rotateSpeed: 90
   onGrab:
     m_PersistentCalls:
       m_Calls: []
